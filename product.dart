@@ -1,7 +1,5 @@
 library product;
 
-export 'src/product_base.dart';
-
 class Product {
   //ürünün alacağı değerler
   var name;
@@ -31,23 +29,23 @@ class Product {
     ];
     return Urun;
   }
-}
 
-String Guncelleme(barcode, yeniBarkod) {
-  return "Barkodu " +
-      barcode +
-      " olan ürünün yeni barkodu şu şekildedir: \n" +
-      (yeniBarkod + 1).toString();
-}
+  String Guncelleme(barcode, yeniBarkod) {
+    return "Barkodu " +
+        barcode +
+        " olan ürünün yeni barkodu şu şekildedir: \n" +
+        (yeniBarkod + 1).toString();
+  }
 
-Ekleme(List<String> liste, String a) {
-  liste.add(a);
-  print("Yeni ürün eklendi");
-}
+  Ekleme(List<String> liste, String a) {
+    liste.add(a);
+    print("Yeni ürün eklendi");
+  }
 
-Silme(List azo, String a) {
-  azo.remove(a);
-  print("Ürün " + a + " silindi");
+  Silme(List azo, String a) {
+    azo.remove(a);
+    print("Ürün " + a + " silindi");
+  }
 }
 
 Listeleme(List<dynamic> ozellikler) {
@@ -69,28 +67,28 @@ void main(List<String> args) {
   print("Ürünler şu şekildedir:");
   print(urunListesi);
   //  Boş Listeye yeni ürünler ekleniyor...
-  Ekleme(urunListesi, product.barcode);
+  product.Ekleme(urunListesi, product.barcode);
 
   print("Ürünler şu şekildedir:");
   print(urunListesi);
 
-  Ekleme(urunListesi, product2.barcode);
+  product2.Ekleme(urunListesi, product2.barcode);
 
   print("Ürünler şu şekildedir:");
   print(urunListesi);
 
-  Ekleme(urunListesi, product3.barcode);
+  product3.Ekleme(urunListesi, product3.barcode);
 
   print("Ürünler şu şekildedir:");
   print(urunListesi);
 
-  Ekleme(urunListesi, product4.barcode);
+  product4.Ekleme(urunListesi, product4.barcode);
 
   print("Ürünler şu şekildedir:");
   print(urunListesi);
   print("\n");
 //  Ürünler Listesinin 2. ürünü siliniyor...
-  Silme(urunListesi, product2.barcode);
+  product2.Silme(urunListesi, product2.barcode);
   print(urunListesi);
   print("\n");
 
@@ -100,13 +98,13 @@ void main(List<String> args) {
 
   var a = 1111;
   print("Ürün güncelleniyor");
-  print(Guncelleme(product3.barcode, a));
+  print(product3.Guncelleme(product3.barcode, a));
   //barkodu kalıcı değiştiriyoruz
   product3.barcode = (a + 1).toString();
 
 //aynı uygulamaları bir diğer ürüne uyguluyoruz
   print("Ürün güncelleniyor");
-  print(Guncelleme(product2.barcode, a + 1));
+  print(product2.Guncelleme(product2.barcode, a + 1));
   product2.barcode = (a + 2).toString();
 
   print(urunListesi);
